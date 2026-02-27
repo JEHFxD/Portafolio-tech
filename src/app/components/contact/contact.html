@@ -1,0 +1,117 @@
+<section id="contacto" class="tech-contact">
+  <div class="matrix-bg"></div>
+  
+  <div class="container">
+    <h2 class="section-title">
+      <span class="title-bracket">{{ '{' }}</span>
+      CONTACTO
+      <span class="title-bracket">{{ '}' }}</span>
+    </h2>
+    
+    <p class="section-subtitle">// Conectemos y creemos algo increíble</p>
+    
+    <div class="contact-container">
+      <!-- Terminal de contacto -->
+      <div class="contact-terminal">
+        <div class="terminal-header">
+          <span class="terminal-dot red"></span>
+          <span class="terminal-dot yellow"></span>
+          <span class="terminal-dot green"></span>
+          <span class="terminal-title">contact.sh</span>
+        </div>
+        
+        <div class="terminal-body">
+          <div class="terminal-line">
+            <span class="prompt">$</span>
+            <span class="command">./connect --method phone</span>
+          </div>
+          <div class="terminal-output contact-info" (click)="copyToClipboard(phoneNumber, 'phone')">
+            <span class="output-icon">📞</span>
+            <span class="output-text">{{phoneNumber}}</span>
+            <span class="copy-indicator" [class.copied]="copied === 'phone'">
+              {{copied === 'phone' ? '✓ Copiado!' : 'Click para copiar'}}
+            </span>
+          </div>
+          
+          <div class="terminal-line">
+            <span class="prompt">$</span>
+            <span class="command">./connect --method email</span>
+          </div>
+          <div class="terminal-output contact-info" (click)="copyToClipboard(email, 'email')">
+            <span class="output-icon">✉️</span>
+            <span class="output-text">{{email}}</span>
+            <span class="copy-indicator" [class.copied]="copied === 'email'">
+              {{copied === 'email' ? '✓ Copiado!' : 'Click para copiar'}}
+            </span>
+          </div>
+          
+          <div class="terminal-line status-line">
+            <span class="prompt">$</span>
+            <span class="command">systemctl status availability</span>
+          </div>
+          <div class="terminal-output status-output">
+            <span class="status-dot active"></span>
+            <span class="status-text">● Disponible para proyectos</span>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Redes sociales estilo código -->
+      <div class="social-section">
+        <h3 class="social-title">
+          <span class="title-bracket">&lt;</span>
+          REDES
+          <span class="title-bracket">/&gt;</span>
+        </h3>
+        
+        <div class="social-grid">
+          <div class="social-card" (click)="openGithub()">
+            <div class="social-icon github">⟨⟩</div>
+            <div class="social-info">
+              <span class="social-name">GitHub</span>
+              <span class="social-handle">@JEHFxD</span>
+            </div>
+            <div class="social-status">
+              <span class="status-led"></span>
+              <span>online</span>
+            </div>
+          </div>
+          
+          <div class="social-card" (click)="openLinkedIn()">
+            <div class="social-icon linkedin">💼</div>
+            <div class="social-info">
+              <span class="social-name">LinkedIn</span>
+              <span class="social-handle">/in/joan-esteban-hincapié-fernandez</span>
+            </div>
+            <div class="social-status">
+              <span class="status-led"></span>
+              <span>online</span>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Código de disponibilidad -->
+        <div class="availability-code">
+          <div class="code-line">
+            <span class="code-keyword">const</span>
+            <span class="code-variable">developer</span>
+            <span class="code-operator">=</span>
+            <span class="code-string">{{ '{' }}</span>
+          </div>
+          <div class="code-line indent">
+            <span class="code-property">status</span>: <span class="code-string">'available'</span>,
+          </div>
+          <div class="code-line indent">
+            <span class="code-property">email</span>: <span class="code-string">'hincapiefernandezjoan123@gmail.com'</span>,
+          </div>
+          <div class="code-line indent">
+            <span class="code-property">responseTime</span>: <span class="code-string">'&lt; 24h'</span>
+          </div>
+          <div class="code-line">
+            <span class="code-string">{{ '}' }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

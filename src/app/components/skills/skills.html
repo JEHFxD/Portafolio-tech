@@ -1,0 +1,43 @@
+<section id="habilidades" class="tech-skills">
+  <div class="matrix-bg"></div>
+  
+  <div class="container">
+    <h2 class="section-title">
+      <span class="title-bracket">&lt;</span>
+      HABILIDADES
+      <span class="title-bracket">/&gt;</span>
+    </h2>
+    
+    <p class="section-subtitle">// Tecnologías y herramientas que domino</p>
+    
+    <div class="skills-container">
+      <div class="skill-category" *ngFor="let category of skills; let catIndex = index">
+        <h3 class="category-title">
+          <span class="category-icon">{{catIndex === 0 ? '⚡' : '🔧'}}</span>
+          {{category.category}}
+        </h3>
+        
+        <div class="skills-grid">
+          <div class="skill-card" *ngFor="let skill of category.items">
+            <div class="skill-header">
+              <span class="skill-icon" [style.color]="skill.color">{{skill.icon}}</span>
+              <span class="skill-name">{{skill.name}}</span>
+            </div>
+            
+            <div class="skill-bar-container">
+              <div class="skill-bar" [style.width]="skill.level + '%'" 
+                   [style.background]="'linear-gradient(90deg, ' + skill.color + ', ' + skill.color + 'dd)'"
+                   [style.box-shadow]="'0 0 10px ' + skill.color">
+                <span class="skill-level">{{skill.level}}%</span>
+              </div>
+            </div>
+            
+            <div class="skill-particles">
+              <span class="particle" *ngFor="let _ of [].constructor(5)"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

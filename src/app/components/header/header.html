@@ -1,0 +1,41 @@
+<header class="tech-header">
+  <div class="header-top-bar">
+    <div class="container">
+      <div class="system-status">
+        <span class="status-led"></span>
+        <span class="status-text">SYSTEM ONLINE</span>
+        <span class="status-time">{{currentTime | date:'HH:mm:ss'}}</span>
+      </div>
+      <div class="system-info">
+        <span class="info-item">PORTFOLIO v2.0</span>
+        <span class="info-item">DEVELOPER MODE</span>
+      </div>
+    </div>
+  </div>
+  
+  <nav class="tech-navbar">
+    <div class="container nav-container">
+      <div class="tech-logo" (click)="scrollTo('inicio')">
+        <span class="bracket">{{ '{' }}</span>  <!-- ESCAPADO -->
+        <span class="logo-text">DEV</span>
+        <span class="cursor">_</span>
+        <span class="bracket">{{ '}' }}</span>  <!-- ESCAPADO -->
+      </div>
+      
+      <div class="menu-icon" [class.active]="menuOpen" (click)="toggleMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      
+      <ul class="nav-menu" [class.active]="menuOpen">
+        <li class="nav-item" *ngFor="let item of navItems; let i = index">
+          <a class="nav-link" (click)="scrollTo(item)">
+            <span class="nav-number">0{{i+1}}.</span>
+            <span class="nav-text">{{item}}</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</header>

@@ -1,0 +1,84 @@
+<section id="inicio" class="tech-hero">
+  <div class="matrix-bg"></div>
+  
+  <div class="container hero-container">
+    <div class="hero-content">
+      <div class="terminal-window">
+        <div class="terminal-header">
+          <span class="terminal-dot red"></span>
+          <span class="terminal-dot yellow"></span>
+          <span class="terminal-dot green"></span>
+          <span class="terminal-title">bash --developer</span>
+        </div>
+        
+        <div class="terminal-body">
+          <p class="terminal-line">
+            <span class="prompt">$</span>
+            <span class="command">whoami</span>
+          </p>
+          <p class="terminal-output">
+            <span class="output-bracket">[</span>
+            <span class="output-text">Joan Esteban Hincapié Fernandez</span>
+            <span class="output-bracket">]</span>
+          </p>
+          
+          <p class="terminal-line">
+            <span class="prompt">$</span>
+            <span class="command">cat role.txt</span>
+          </p>
+          <p class="terminal-output typing-effect">
+            <span class="output-text">{{typedText}}</span>
+            <span class="cursor" [class.hidden]="!showCursor">_</span>
+          </p>
+          
+          <p class="terminal-line">
+            <span class="prompt">$</span>
+            <span class="command">specialized_in</span>
+          </p>
+          <div class="tech-rotator">
+            <span class="tech-bracket">&lt;</span>  <!-- ESCAPADO: < -->
+            <span class="tech-name">{{technologies[currentTech]}}</span>
+            <span class="tech-bracket">/&gt;</span>  <!-- ESCAPADO: /> -->
+          </div>
+        </div>
+      </div>
+      
+    
+      <div class="hero-actions">
+        <button class="tech-btn primary" (click)="scrollToProjects()">
+          <span class="btn-text">Ver Proyectos</span>
+          <span class="btn-icon">→</span>
+        </button>
+        
+        <a href="assets/cv.pdf" download class="tech-btn secondary">
+          <span class="btn-icon">↓</span>
+          <span class="btn-text">Descargar CV</span>
+        </a>
+      </div>
+    </div>
+    
+    <div class="hero-visual">
+      <div class="code-orb">
+        <div class="orb-ring"></div>
+        <div class="orb-ring inner"></div>
+        <div class="orb-core">
+          <span class="code-symbol">{{ '{' }}</span>  <!-- ESCAPADO: { -->
+          <span class="code-symbol">{{ '}' }}</span>  <!-- ESCAPADO: } -->
+          <span class="code-symbol">/&gt;</span>  <!-- ESCAPADO: /> -->
+        </div>
+      </div>
+      
+      <div class="floating-code">
+        <div class="code-line" *ngFor="let line of ['const dev =', 'new Developer()', 'dev.skills = [];', 'dev.passion = ∞;']; let i = index" 
+             [style.animation-delay]="i * 0.5 + 's'">
+          <span class="code-text">{{line}}</span>  <!-- Mejor práctica: envolver en span -->
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="scroll-indicator" (click)="scrollToProjects()">
+    <span class="scroll-text">SCROLL</span>
+    <span class="scroll-line"></span>
+  </div>
+</section>

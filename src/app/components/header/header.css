@@ -1,0 +1,206 @@
+/* ============================================
+   HEADER TECNOLÓGICO
+============================================ */
+.tech-header {
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  background: rgba(10, 12, 20, 0.85);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  box-shadow: 0 0 12px rgba(0,0,0,0.4);
+}
+
+/* ============================================
+   BARRA SUPERIOR: ESTADO DEL SISTEMA
+============================================ */
+.header-top-bar {
+  width: 100%;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  background: rgba(15, 18, 30, 0.6);
+}
+
+.header-top-bar .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.system-status {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: "JetBrains Mono", monospace;
+  color: var(--color-text-muted);
+  font-size: 0.9rem;
+}
+
+.status-led {
+  width: 10px;
+  height: 10px;
+  background: var(--color-secondary);
+  border-radius: 50%;
+  box-shadow: 0 0 10px var(--color-secondary);
+}
+
+.status-text {
+  letter-spacing: 1px;
+  color: var(--color-secondary);
+  font-weight: bold;
+}
+
+.status-time {
+  color: var(--color-primary);
+}
+
+.system-info {
+  display: flex;
+  gap: 1.5rem;
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+  font-family: "JetBrains Mono", monospace;
+}
+
+.info-item {
+  padding: 0.2rem 0.6rem;
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: var(--radius);
+  background: rgba(255,255,255,0.03);
+}
+
+/* ============================================
+   NAVBAR PRINCIPAL
+============================================ */
+.tech-navbar {
+  padding: 1rem 0;
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* LOGO */
+.tech-logo {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 1.7rem;
+  font-weight: bold;
+  color: var(--color-primary);
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.tech-logo:hover {
+  text-shadow: var(--shadow-neon);
+}
+
+.tech-logo .cursor {
+  animation: blink 1s steps(2) infinite;
+  margin-left: 2px;
+}
+
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+/* ============================================
+   MENÚ RESPONSIVE (ICONO)
+============================================ */
+.menu-icon {
+  width: 32px;
+  height: 22px;
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+.menu-icon span {
+  height: 3px;
+  width: 100%;
+  background: var(--color-text);
+  border-radius: 4px;
+  transition: var(--transition);
+}
+
+.menu-icon.active span:nth-child(1) {
+  transform: translateY(9px) rotate(45deg);
+}
+.menu-icon.active span:nth-child(2) {
+  opacity: 0;
+}
+.menu-icon.active span:nth-child(3) {
+  transform: translateY(-9px) rotate(-45deg);
+}
+
+/* ============================================
+   MENÚ DESKTOP
+============================================ */
+.nav-menu {
+  display: flex;
+  align-items: center;
+  gap: 2.2rem;
+  list-style: none;
+}
+
+.nav-item {}
+
+.nav-link {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  text-decoration: none;
+  color: var(--color-text);
+  font-family: "JetBrains Mono", monospace;
+  transition: var(--transition);
+}
+
+.nav-number {
+  color: var(--color-secondary);
+  font-weight: bold;
+}
+
+.nav-link:hover {
+  color: var(--color-primary);
+  text-shadow: var(--shadow-neon);
+}
+
+/* ============================================
+   RESPONSIVE MENU (MÓVIL)
+============================================ */
+@media (max-width: 920px) {
+  .menu-icon {
+    display: flex;
+  }
+
+  .nav-menu {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: rgba(10, 12, 20, 0.97);
+    display: flex;
+    flex-direction: column;
+    width: 220px;
+    padding: 1.5rem 1rem;
+    border-left: 1px solid rgba(255,255,255,0.06);
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    box-shadow: var(--shadow-neon);
+    transform: translateX(120%);
+    transition: var(--transition);
+  }
+
+  .nav-menu.active {
+    transform: translateX(0);
+  }
+
+  .nav-link {
+    padding: 0.8rem 0;
+    font-size: 1.2rem;
+  }
+}

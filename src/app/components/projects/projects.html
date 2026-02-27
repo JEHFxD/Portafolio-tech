@@ -1,0 +1,74 @@
+<section id="proyectos" class="tech-projects">
+  <div class="matrix-bg"></div>
+  
+  <div class="container">
+    <h2 class="section-title">
+      <span class="title-bracket">[</span>
+      PROYECTOS
+      <span class="title-bracket">]</span>
+    </h2>
+    
+    <p class="section-subtitle">// Mis trabajos más relevantes</p>
+    
+    <!-- Grid de Proyectos - Sin filtros -->
+    <div class="projects-grid">
+      <div class="project-card" 
+           *ngFor="let project of projects"
+           (mouseenter)="hoveredProject = project.id"
+           (mouseleave)="hoveredProject = null">
+        
+        <div class="card-header">
+          <div class="card-dots">
+            <span class="dot red"></span>
+            <span class="dot yellow"></span>
+            <span class="dot green"></span>
+          </div>
+          <span class="card-title">{{project.title}}</span>
+        </div>
+        
+        <div class="card-body">
+          <div class="project-image-container">
+            <img [src]="project.image" [alt]="project.title" class="project-image">
+            <div class="image-overlay" [class.active]="hoveredProject === project.id">
+              <div class="overlay-content">
+                <a *ngIf="project.githubUrl" (click)="openUrl(project.githubUrl)" class="overlay-link">
+                  <span class="link-icon">⟨⟩</span>
+                  Ver Código
+                </a>
+                <a *ngIf="project.liveUrl" (click)="openUrl(project.liveUrl)" class="overlay-link">
+                  <span class="link-icon">🌐</span>
+                  Live Demo
+                </a>
+              </div>
+            </div>
+          </div>
+          
+          <p class="project-description">{{project.description}}</p>
+          
+          <div class="tech-stack">
+            <span class="tech-label">Tecnologías:</span>
+            <div class="tech-tags">
+              <span class="tech-tag" *ngFor="let tech of project.technologies"
+                    [style.color]="getTechColor(tech)"
+                    [style.border-color]="getTechColor(tech)">
+                <span class="tech-dot" [style.background]="getTechColor(tech)"></span>
+                {{tech}}
+              </span>
+            </div>
+          </div>
+          
+          <div class="project-meta" *ngIf="project.year || project.difficulty">
+            <span *ngIf="project.year" class="meta-item">
+              <span class="meta-icon">📅</span>
+              {{project.year}}
+            </span>
+            <span *ngIf="project.difficulty" class="meta-item">
+              <span class="meta-icon">⚡</span>
+              {{project.difficulty}}
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

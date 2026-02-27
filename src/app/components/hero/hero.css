@@ -1,0 +1,329 @@
+/* ============================================
+   HERO SECCIÓN PRINCIPAL
+============================================ */
+.tech-hero {
+  position: relative;
+  padding: 8rem 0 6rem;
+  background: var(--color-bg-light);
+  overflow: hidden;
+}
+
+.tech-hero .matrix-bg {
+  opacity: 0.15;
+}
+
+/* CONTENEDOR PRINCIPAL */
+.hero-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 4rem;
+}
+
+/* ============================================
+   TERMINAL DE PRESENTACIÓN
+============================================ */
+.terminal-window {
+  width: 520px;
+  background: #0f1424;
+  border-radius: var(--radius);
+  border: 1px solid rgba(255,255,255,0.06);
+  box-shadow: var(--shadow-neon);
+  overflow: hidden;
+}
+
+.terminal-window .terminal-header {
+  background: #111729;
+  padding: 0.8rem 1rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.terminal-window .terminal-title {
+  margin-left: auto;
+  color: var(--color-text-muted);
+  font-size: 0.85rem;
+}
+
+.terminal-window .terminal-body {
+  padding: 1.7rem;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 1rem;
+  color: #cfd8e3;
+}
+
+.terminal-line {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 0.8rem;
+}
+
+.prompt {
+  color: var(--color-secondary);
+}
+
+.command {
+  color: var(--color-primary);
+}
+
+.terminal-output {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: var(--color-accent);
+  margin-bottom: 1.1rem;
+}
+
+.output-bracket {
+  color: var(--color-secondary);
+}
+
+/* EFECTO DE ESCRITURA */
+.typing-effect {
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+}
+
+.typing-effect .cursor {
+  margin-left: 4px;
+  animation: blink 1s steps(2) infinite;
+}
+
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+/* ROTADOR DE TECNOLOGÍAS */
+.tech-rotator {
+  margin-top: 0.5rem;
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: var(--color-primary);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.tech-bracket {
+  color: var(--color-secondary);
+}
+
+.tech-name {
+  color: var(--color-primary);
+  text-shadow: var(--shadow-neon);
+  transition: 0.3s ease;
+}
+
+
+/* ============================================
+   BOTONES HERO
+============================================ */
+.hero-actions {
+  margin-top: 2.2rem;
+  display: flex;
+  gap: 1.4rem;
+}
+
+.tech-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0.9rem 1.6rem;
+  border-radius: var(--radius);
+  font-family: "JetBrains Mono", monospace;
+  font-size: 1rem;
+  cursor: pointer;
+  text-decoration: none;
+  transition: var(--transition);
+  border: 1px solid transparent;
+}
+
+.tech-btn.primary {
+  background: var(--color-primary);
+  color: #000;
+  font-weight: bold;
+}
+
+.tech-btn.primary:hover {
+  box-shadow: var(--shadow-neon);
+}
+
+.tech-btn.secondary {
+  background: rgba(255,255,255,0.05);
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+
+.tech-btn.secondary:hover {
+  background: var(--color-primary);
+  color: #000;
+  box-shadow: var(--shadow-neon);
+}
+
+/* ============================================
+   VISUAL: ORB DE CÓDIGO
+============================================ */
+.hero-visual {
+  position: relative;
+}
+
+.code-orb {
+  width: 260px;
+  height: 260px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.orb-ring {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border: 2px dashed rgba(0,255,200,0.2);
+  border-radius: 50%;
+  animation: rotate 10s linear infinite;
+}
+
+.orb-ring.inner {
+  width: 70%;
+  height: 70%;
+  animation-duration: 6s;
+  border-color: rgba(0,255,255,0.25);
+}
+
+.orb-core {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  background: rgba(0,255,200,0.15);
+  border: 2px solid var(--color-primary);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: var(--shadow-neon);
+  animation: pulse 3s infinite ease-in-out;
+}
+
+.code-symbol {
+  font-size: 1.4rem;
+  color: var(--color-primary);
+  text-shadow: var(--shadow-neon);
+  margin: 0 2px;
+}
+
+@keyframes rotate {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); opacity: 0.9; }
+  50% { transform: scale(1.1); opacity: 1; }
+}
+
+/* ============================================
+   CÓDIGO FLOTANTE
+============================================ */
+.floating-code {
+  position: absolute;
+  left: 50%;
+  top: -40px;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.code-line {
+  opacity: 0;
+  transform: translateY(15px);
+  animation: floatIn 3s ease forwards;
+}
+
+.code-text {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 1rem;
+  color: var(--color-secondary);
+  text-shadow: var(--shadow-neon);
+}
+
+@keyframes floatIn {
+  0% { opacity: 0; transform: translateY(15px); }
+  40% { opacity: 1; transform: translateY(0); }
+  100% { opacity: 0.4; transform: translateY(-5px); }
+}
+
+/* ============================================
+   INDICADOR DE SCROLL
+============================================ */
+.scroll-indicator {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  cursor: pointer;
+  text-align: center;
+  font-family: "JetBrains Mono", monospace;
+  color: var(--color-text-muted);
+}
+
+.scroll-text {
+  font-size: 0.8rem;
+  letter-spacing: 2px;
+}
+
+.scroll-line {
+  width: 2px;
+  height: 35px;
+  background: var(--color-primary);
+  margin: 0.4rem auto 0;
+  border-radius: 3px;
+  animation: scrollMove 2s infinite ease-in-out;
+}
+
+@keyframes scrollMove {
+  0% { transform: translateY(0); opacity: 1; }
+  50% { transform: translateY(10px); opacity: 0.4; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+
+/* ============================================
+   RESPONSIVE
+============================================ */
+@media (max-width: 1020px) {
+  .hero-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .hero-stats {
+    justify-content: center;
+  }
+
+  .hero-actions {
+    justify-content: center;
+  }
+
+  .floating-code {
+    left: 50%;
+    top: -20px;
+  }
+}
+
+@media (max-width: 600px) {
+  .terminal-window {
+    width: 100%;
+  }
+
+  .code-orb {
+    width: 200px;
+    height: 200px;
+  }
+}
